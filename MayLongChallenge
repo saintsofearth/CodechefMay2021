@@ -1,0 +1,19 @@
+package com.apoorvarjaria;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int t = scanner.nextInt();
+        while (t > 0) {
+            int x = scanner.nextInt();
+            int a = scanner.nextInt();
+            int b = scanner.nextInt();
+            int totalSugarDissolved = (a + (100 - x) * b) * 10;
+            System.out.println(totalSugarDissolved);
+            t--;
+        }
+    }
+}
