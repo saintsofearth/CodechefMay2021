@@ -1,3 +1,5 @@
+/************************************************* Problem 1 ********************************************************************************/
+
 package com.apoorvarjaria;
 
 import java.util.Scanner;
@@ -17,3 +19,70 @@ public class Main {
         }
     }
 }
+
+
+/************************************************* Problem 2 ********************************************************************************/
+
+package com.apoorvarjaria;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.DecimalFormat;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class Main {
+
+    // For Fast I/O operation in java we have used a custom I/O class named FastReader
+    
+    static class FastReader {
+        BufferedReader br;
+        StringTokenizer st;
+
+        public FastReader()
+        {
+            br = new BufferedReader(new InputStreamReader(System.in));
+        }
+        String next() {
+            while (st == null || !st.hasMoreElements()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+
+        int nextInt() {
+            return Integer.parseInt(next());
+        }
+    }
+
+    public static void main(String[] args) {
+        FastReader scanner = new FastReader();
+        int t = scanner.nextInt();
+        while (t > 0) {
+            int n = scanner.nextInt();
+            int x = scanner.nextInt();
+            int k = scanner.nextInt();
+            boolean inPocket = false;
+            // Check if we pocket the ball in the hole starting from 0 to N+1
+            if (x % k == 0) {
+                inPocket = true;
+            } else if ((n + 1 - x) % k == 0) { // check if we pocket the ball in the hole starting from N+1 to 0
+                inPocket = true;
+            }
+            if (inPocket) {
+                System.out.println("YES");
+            } else {
+                System.out.println("NO");
+            }
+            t--;
+        }
+    }
+}
+
+
